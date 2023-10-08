@@ -1,0 +1,26 @@
+ @startuml tables
+ 
+package "User" #f0f8ff {
+    entity "users (ユーザー)" as users {
+        + <<PK>> id     : uint      : ユーザid
+        --
+        name            : string    : ユーザ名
+        password        : uint      : ユーザパスワード
+        created_at      : date      : 作成日時
+        updated_at      : date      : 更新日時
+    }
+
+    entity "tasks" as tasks {
+        + <<PK>> id      : uint     : タスクid
+        --
+        * <<FK>> user_id : uint     : ユーザid
+        title            : string   : タスク名
+        created_at      : date      : 作成日時
+        updated_at      : date      : 更新日時
+    }
+}
+
+
+ users ||-d-o{ tasks
+ 
+ @enduml
