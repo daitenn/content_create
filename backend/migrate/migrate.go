@@ -6,7 +6,7 @@ import (
 	"go-restapi/model"
 )
 
-func main () {
+func main() {
 	dbConn := db.NewDB()
 	defer fmt.Println("Successfully migrate")
 	defer db.CloseDB(dbConn)
